@@ -3,6 +3,7 @@ import MapBackground from '../Components/MapBackground';
 import "../Styles/Pages/Hero.css"
 import TraceLayer from '../Components/Tracebility';
 import { useEffect } from "react";
+import BentoFeatures from '../Components/BentoFeatures';
 
 const Landing = () => {
 
@@ -62,7 +63,10 @@ useEffect(() => {
         </div>
       </div>
 
-       <TraceLayer />
+      <TraceLayer />
+      
+
+      <BentoFeatures/>
     </section>
   );
 };
