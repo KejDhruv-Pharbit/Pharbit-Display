@@ -221,3 +221,22 @@
 
 
 
+
+
+/* ===== SCROLL ANIMATION ===== */
+.trace-col-left,
+.trace-col-right,
+.trace-row-bottom {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: all 0.8s ease;
+}
+
+.trace-col-right {
+  transform: translateX(60px);
+}
+
+.trace-visible {
+  opacity: 1;
+  transform: translateX(0);
+}

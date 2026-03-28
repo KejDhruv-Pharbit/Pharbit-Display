@@ -2,8 +2,34 @@ import Navbar from '../Components/Navbar';
 import MapBackground from '../Components/MapBackground';
 import "../Styles/Pages/Hero.css"
 import TraceLayer from '../Components/Tracebility';
+import { useEffect } from "react";
 
 const Landing = () => {
+
+useEffect(() => {
+  const elements = document.querySelectorAll(
+    ".ph-hero-badge, .ph-hero-main-title, .ph-hero-description, .ph-hero-actions"
+  );
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("ph-visible");
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  elements.forEach((el) => observer.observe(el));
+
+  // optional: map glow trigger
+  const map = document.querySelector(".map-svg-layer");
+  if (map) map.classList.add("map-visible");
+
+  return () => observer.disconnect();
+}, []);
   return (
     <section className="ph-hero-container">
       {/* 1. The Dotted Map & Glows (Behind everything) */}

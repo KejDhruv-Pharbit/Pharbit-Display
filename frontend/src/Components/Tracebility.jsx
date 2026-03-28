@@ -1,6 +1,27 @@
 import "../Styles/Components/Tracebility.css"
-
+import { useEffect } from "react";
 const TraceLayer = () => {
+
+useEffect(() => {
+  const elements = document.querySelectorAll(
+    ".trace-col-left, .trace-col-right, .trace-row-bottom"
+  );
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("trace-visible");
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  elements.forEach((el) => observer.observe(el));
+
+  return () => observer.disconnect();
+}, []);
   return (
     <section className="trace-section">
       <div className="trace-container">
