@@ -5,7 +5,7 @@ const Navbar = () => {
     <nav className="navbar-container">
       <div className="navbar-logo">Pharbit</div>
       <ul className="navbar-links">
-        <li>Markets</li>
+        <li>Software</li>
         <li>Security</li>
         <li>Developers</li>
         <li>Governance</li>
