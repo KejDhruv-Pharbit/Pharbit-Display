@@ -116,3 +116,52 @@
     width: 100%;
   }
 }
+
+
+/* ===== HERO SCROLL + LOAD ANIMATIONS ===== */
+
+.ph-hero-badge,
+.ph-hero-main-title,
+.ph-hero-description,
+.ph-hero-actions {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.ph-hero-main-title {
+  transform: translateY(50px);
+}
+
+.ph-hero-description {
+  transform: translateY(60px);
+}
+
+.ph-hero-actions {
+  transform: translateY(70px);
+}
+
+/* visible state */
+.ph-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* LEFT → RIGHT subtle motion */
+.ph-hero-badge {
+  transform: translateX(-40px);
+}
+
+.ph-hero-actions {
+  transform: translateX(40px);
+}
+
+/* MAP GLOW BOOST (if background exists) */
+.map-svg-layer {
+  transition: filter 3.5s ease, opacity 1.2s ease;
+}
+
+.map-visible {
+  filter: brightness(2) contrast(1.3);
+  opacity: 0.8;
+}
