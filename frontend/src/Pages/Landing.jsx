@@ -2,7 +2,7 @@ import Navbar from '../Components/Navbar';
 import MapBackground from '../Components/MapBackground';
 import "../Styles/Pages/Hero.css"
 
-const Hero = () => {
+const Landing = () => {
   return (
     <section className="ph-hero-container">
       {/* 1. The Dotted Map & Glows (Behind everything) */}
@@ -38,4 +38,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Landing;

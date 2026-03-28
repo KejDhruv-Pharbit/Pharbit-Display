@@ -1,12 +1,12 @@
 import { Route } from "react-router"
 import { Routes } from "react-router"
-import Hero from "./Pages/Hero"
+import Landing from "./Pages/Landing"
 
 function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Hero/>} />
+      <Route path="/" element={<Landing/>} />
    </Routes>
   )
 }

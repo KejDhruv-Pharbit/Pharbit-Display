@@ -5,16 +5,17 @@ const MapBackground = () => {
   return (
     <div className="map-wrapper">
       {/* 1. The Dotted Map */}
-      <div 
-        className="map-svg-layer" 
-        style={{ backgroundImage: `url(${mapUrl})` }}
-      ></div>
+     <div className="map-wrapper">
+  <div className="map-svg-layer">
+    <img src={mapUrl} alt="map" />
+  </div>
 
-      {/* 2. The Orange Glow (Left) */}
-      <div className="map-glow orange-glow"></div>
+  {/* 🔥 EDGE BLEND OVERLAY */}
+  <div className="map-overlay"></div>
 
-      {/* 3. The Blue/Cyan Glow (Right) */}
-      <div className="map-glow blue-glow"></div>
+  <div className="map-glow orange-glow"></div>
+  <div className="map-glow blue-glow"></div>
+</div>
     </div>
   );
 };
