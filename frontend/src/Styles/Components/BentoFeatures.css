@@ -1,162 +1,251 @@
+/* ─── Section ─────────────────────────────────────────────────────────────── */
 .bento-section {
   width: 100%;
-  background-color: #050505;
-  padding: 120px 0;
+  padding: 50px 0 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: 'Inter', sans-serif;
 }
-
+ 
 .bento-main-title {
-  font-size: 56px;
+  font-size: 58px;
+  font-weight: 600;
   color: #ffffff;
   text-align: center;
-  margin-bottom: 80px;
-  letter-spacing: -2px;
-  line-height: 1.1;
+  margin-bottom: 64px;
+  letter-spacing: -1.5px;
+  line-height: 1.12;
 }
-
+ 
+/* ─── Grid ─────────────────────────────────────────────────────────────────── */
 .bento-grid {
-  max-width: 1200px;
+  max-width: 1160px;
   width: 90%;
   display: grid;
-  grid-template-columns: 1.2fr 1fr; 
-  gap: 24px;
+  grid-template-columns: 1.15fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
 }
-
-/* --- Premium Card Styling --- */
+ 
+/* ─── Card Base ────────────────────────────────────────────────────────────── */
 .bento-card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 32px;
-  padding: 45px;
+  background: #070707;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 24px;
+  padding: 40px;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-height: 420px;
-  transition: border 0.3s ease;
+  transition: border-color 0.3s ease;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
 }
-
+ 
 .bento-card:hover {
-  border: 1px solid rgba(255, 77, 41, 0.3);
+  border-color: rgba(0, 212, 255, 0.25);
 }
 
+/* Gradient Cards (1st and 4th) */
+.bento-card:nth-child(1) {
+  background: radial-gradient(circle at 30% 30%, rgba(0, 212, 255, 0.12), transparent 60%), #070707;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.bento-card:nth-child(4) {
+  background: radial-gradient(circle at 70% 70%, rgba(0, 212, 255, 0.12), transparent 60%), #070707;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+/* subtle hover glow */
+.bento-card:nth-child(1):hover,
+.bento-card:nth-child(4):hover {
+  box-shadow: 0 0 40px rgba(0, 212, 255, 0.15);
+}
+ 
+.bento-card--wide {
+  min-height: 200px;
+}
+ 
+.bento-card--square {
+  min-height: 300px;
+}
+ 
+/* ─── Card Content ─────────────────────────────────────────────────────────── */
+.bento-content {
+  position: relative;
+  z-index: 2;
+}
+ 
 .bento-title {
-  font-size: 26px;
+  font-size: 24px;
+  font-weight: 600;
   color: #ffffff;
-  margin-bottom: 15px;
-  font-weight: 500;
+  margin: 0 0 12px;
+  letter-spacing: -0.3px;
 }
-
+ 
 .bento-desc {
-  font-size: 15px;
-  color: #a1a1aa; /* Silver-grey for contrast */
-  line-height: 1.6;
-  max-width: 400px;
+  font-size: 14px;
+  color: #888888;
+  line-height: 1.65;
+  max-width: 100%;
+  margin: 0;
 }
-
-/* --- Visual Areas --- */
+ 
+/* ─── Visual Area ──────────────────────────────────────────────────────────── */
 .bento-visual {
   flex: 1;
   display: flex;
   position: relative;
-  margin-top: 30px;
+  margin-top: 32px;
+  min-height: 160px;
 }
-
-.bento-center {
+ 
+.bento-visual--center {
   justify-content: center;
   align-items: center;
 }
-
-/* Orbital Effect for Card 1 */
-.bento-orbital {
-  width: 140px;
-  height: 140px;
+ 
+/* ─── Orbital (Card 1) ─────────────────────────────────────────────────────── */
+.bento-orbital-ring {
   border-radius: 50%;
-  border: 1px solid rgba(255, 77, 41, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
 }
-
-.bento-orbital::before {
-  content: '';
-  position: absolute;
+ 
+.bento-orbital-ring--outer {
   width: 180px;
   height: 180px;
+  border: 1px solid rgba(0, 212, 255, 0.18);
+  background: rgba(0, 212, 255, 0.03);
+}
+ 
+.bento-orbital-ring--outer::before {
+  content: '';
+  position: absolute;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.03);
 }
-
-/* Icon Grid for Card 3 */
+ 
+.bento-orbital-ring--outer::after {
+  content: '';
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+}
+ 
+.bento-orbital-ring--inner {
+  width: 120px;
+  height: 120px;
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  background: rgba(0, 212, 255, 0.05);
+}
+ 
+.bento-orbital-core {
+  width: 68px;
+  height: 68px;
+  background: #1a1a1a;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ 
+/* ─── Price Display (Card 2) ───────────────────────────────────────────────── */
+.bento-price-display {
+  position: relative;
+  z-index: 2;
+}
+ 
+.bento-price-text {
+  font-size: 52px;
+  font-weight: 700;
+  color: #00d4ff;
+  letter-spacing: 4px;
+  opacity: 0.85;
+}
+ 
+/* ─── Icon Grid (Card 3) ───────────────────────────────────────────────────── */
 .bento-icon-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-  margin-top: 40px;
-  opacity: 0.6;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-top: 36px;
 }
-
-.bento-mini-box {
-  width: 50px;
-  height: 50px;
+ 
+.bento-icon-cell {
+  width: 48px;
+  height: 48px;
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
 }
-
-.bento-mini-box.active {
-  background: rgba(255, 77, 41, 0.1);
-  border: 1px solid #ff4d29;
-  color: #ff4d29;
-  box-shadow: 0 0 20px rgba(255, 77, 41, 0.2);
+ 
+.bento-icon-cell--active {
+  background: #00d4ff;
+  border-color: #00d4ff;
+  color: #ffffff;
+  box-shadow: 0 0 24px rgba(0, 212, 255, 0.35);
 }
-
-/* Shield Effect for Card 4 */
+ 
+/* ─── Shield (Card 4) ──────────────────────────────────────────────────────── */
 .bento-shield-wrapper {
+  position: relative;
   z-index: 2;
-  filter: drop-shadow(0 0 25px rgba(255, 77, 41, 0.4));
+  filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.35));
 }
-
-/* --- Glows --- */
-.bento-glow-red-large {
+ 
+/* ─── Glows ────────────────────────────────────────────────────────────────── */
+.bento-glow {
   position: absolute;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(255, 77, 41, 0.15) 0%, transparent 70%);
-  filter: blur(50px);
-  bottom: -100px;
+  border-radius: 50%;
+  pointer-events: none;
 }
-
-.bento-glow-red {
-  position: absolute;
-  width: 180px;
-  height: 180px;
-  background: radial-gradient(circle, rgba(255, 77, 41, 0.2) 0%, transparent 70%);
-  filter: blur(30px);
+ 
+.bento-glow--center {
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.14) 0%, transparent 70%);
+  filter: blur(28px);
 }
-
-.bento-price-label {
-    background: rgba(255, 255, 255, 0.03);
-    padding: 10px 20px;
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #ff4d29;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    margin-top: auto;
+ 
+.bento-glow--subtle {
+  width: 280px;
+  height: 160px;
+  background: radial-gradient(ellipse, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+  filter: blur(32px);
+  bottom: -20px;
 }
-
-@media (max-width: 1024px) {
-  .bento-grid { grid-template-columns: 1fr; }
+ 
+.bento-glow--large {
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.13) 0%, transparent 70%);
+  filter: blur(48px);
+  bottom: -120px;
+}
+ 
+/* ─── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+ 
+  .bento-main-title {
+    font-size: 40px;
+  }
 }
