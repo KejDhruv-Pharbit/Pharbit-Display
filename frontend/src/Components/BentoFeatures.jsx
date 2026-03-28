@@ -72,6 +72,24 @@ const BentoFeatures = () => {
         {/* Card 3 — Square Left Bottom */}
         <div className="bento-card bento-card--square">
           <div className="bento-content">
+            <h3 className="bento-title">Enhanced Security</h3>
+            <p className="bento-desc">
+              Cryptographic attestation and tamper-proof encryption ensure
+              medicine data remains immutable and verified at every handoff
+              across the supply chain.
+            </p>
+          </div>
+          <div className="bento-visual bento-visual--center">
+            <div className="bento-shield-wrapper">
+              <ShieldCheck size={110} strokeWidth={1} color="#00d4ff" />
+            </div>
+            <div className="bento-glow bento-glow--large"></div>
+          </div>
+        </div>
+ 
+        {/* Card 4 — Wide Right Bottom */}
+        <div className="bento-card bento-card--wide">
+          <div className="bento-content">
             <h3 className="bento-title">Cross-chain Innovation</h3>
             <p className="bento-desc">
               Bridging disparate networks for seamless cross-border
@@ -89,24 +107,6 @@ const BentoFeatures = () => {
             <div className="bento-icon-cell"><Globe size={15} /></div>
             <div className="bento-icon-cell"><Lock size={15} /></div>
             <div className="bento-icon-cell"><Database size={15} /></div>
-          </div>
-        </div>
- 
-        {/* Card 4 — Wide Right Bottom */}
-        <div className="bento-card bento-card--wide">
-          <div className="bento-content">
-            <h3 className="bento-title">Enhanced Security</h3>
-            <p className="bento-desc">
-              Cryptographic attestation and tamper-proof encryption ensure
-              medicine data remains immutable and verified at every handoff
-              across the supply chain.
-            </p>
-          </div>
-          <div className="bento-visual bento-visual--center">
-            <div className="bento-shield-wrapper">
-              <ShieldCheck size={110} strokeWidth={1} color="#00d4ff" />
-            </div>
-            <div className="bento-glow bento-glow--large"></div>
           </div>
         </div>
  
