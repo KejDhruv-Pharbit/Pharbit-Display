@@ -4,7 +4,7 @@ const TraceLayer = () => {
   return (
     <section className="trace-section">
       <div className="trace-container">
-        
+
         {/* Top Content Row */}
         <div className="trace-row-top">
           <div className="trace-col-left">
@@ -12,12 +12,11 @@ const TraceLayer = () => {
               One Traceability <br /> Layer. Every <br /> Medicine Batch.
             </h2>
             <p className="trace-para">
-              Log medicine batches on your preferred blockchain and start 
-              verifying provenance instantly through secure, automated 
-              smart contracts. Enjoy seamless cross-chain access, optimized 
-              visibility, real-time tracking, and full control of your supply chain—no 
-              intermediaries, just transparent, efficient 
-              decentralized tracking working for you.
+              Log medicine batches on a decentralized ledger and verify 
+              provenance instantly through immutable, trustless smart 
+              contracts. Gain seamless on-chain visibility, real-time 
+              tracking, and complete control over your supply chain — 
+              without intermediaries, without compromise.
             </p>
           </div>
 
@@ -25,7 +24,7 @@ const TraceLayer = () => {
             <div className="trace-icon-wrapper">
               {/* Background radial glow */}
               <div className="trace-icon-glow"></div>
-              
+
               {/* Geometric SVG Cube Icon */}
               <svg className="trace-svg-cube" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Main Wireframe Structure */}
@@ -44,21 +43,24 @@ const TraceLayer = () => {
 
         {/* Bottom Description Row */}
         <div className="trace-row-bottom">
-          <div className="trace-col-empty"></div> {/* Used for spacing alignment */}
+          <div className="trace-col-empty"></div>
           <div className="trace-col-text">
             <p className="trace-para-small">
-              Our protocol intelligently routes batch data across multiple 
-              blockchains using secure, trust-minimized cross-chain 
-              communication. It ensures seamless asset transfers, optimized 
-              data efficiency, reduced fragmentation, and consistent 
-              execution—allowing pharmacies and distributors to access 
-              deep traceability across ecosystems without friction.
+              Our protocol leverages decentralized consensus and cryptographic 
+              attestation to ensure every record across the supply chain is 
+              tamper-proof and permanently auditable. From the first 
+              on-chain registration to the final settlement, every state 
+              transition is enforced by autonomous smart contract logic — 
+              eliminating single points of failure, reducing trust 
+              assumptions, and delivering end-to-end transparency across 
+              every node in the network.
             </p>
           </div>
         </div>
 
         {/* Decorative Grid Line */}
         <div className="trace-divider-line"></div>
+
       </div>
     </section>
   );

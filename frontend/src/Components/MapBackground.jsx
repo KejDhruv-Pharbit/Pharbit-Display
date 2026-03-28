@@ -14,7 +14,9 @@ const MapBackground = () => {
   <div className="map-overlay"></div>
 
   <div className="map-glow orange-glow"></div>
-  <div className="map-glow blue-glow"></div>
+              <div className="map-glow blue-glow"></div>
+              
+                <div className="map-overlay"></div>
 </div>
     </div>
   );
