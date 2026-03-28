@@ -1,0 +1,55 @@
+.navbar-container {
+  --nav-text-main: #ffffff;
+  --nav-text-muted: #a1a1aa;
+  background-color: transparent ;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 40px;
+  position: relative;
+  z-index: 50; /* High z-index to stay above the map */
+  font-family: 'Inter', sans-serif;
+}
+
+.navbar-logo {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  color: var(--nav-text-main);
+}
+
+.navbar-links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  font-size: 14px;
+  color: var(--nav-text-muted);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.navbar-links li:hover {
+  color: var(--nav-text-main);
+}
+
+.navbar-menu-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.navbar-menu-icon span {
+  display: block;
+  width: 30px;
+  height: 2px;
+  background-color: var(--nav-text-main);
+}

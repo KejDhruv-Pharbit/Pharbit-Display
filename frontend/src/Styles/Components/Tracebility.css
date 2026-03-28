@@ -1,0 +1,129 @@
+.trace-section {
+  --trace-bg: #050505;
+  --trace-primary: #ff4d29;
+  --trace-text-main: #ffffff;
+  --trace-text-muted: #a1a1aa;
+  
+  width: 100%;
+  background-color: var(--trace-bg);
+  padding: 100px 20px;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.trace-container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+
+/* --- Left Content --- */
+.trace-content-left {
+  flex: 1;
+  max-width: 500px;
+}
+
+.trace-title {
+  font-size: 52px;
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  margin: 0 0 30px 0;
+  color: var(--trace-text-main);
+}
+
+.trace-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--trace-text-muted);
+  margin: 0;
+}
+
+/* --- Right Visual (3D Graphic & Glow) --- */
+.trace-visual-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 400px;
+}
+
+/* The intense orange glow behind the wireframe */
+.trace-glow-backdrop {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 77, 41, 0.4) 0%, transparent 60%);
+  filter: blur(50px);
+  z-index: 0;
+}
+
+.trace-wireframe {
+  width: 280px;
+  height: 280px;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 0 15px rgba(255, 77, 41, 0.5));
+  /* Optional: Add a slow spinning animation */
+  animation: float-spin 20s linear infinite;
+}
+
+/* --- Bottom Content --- */
+.trace-bottom-content {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end; /* Aligns text to the right side like the image */
+}
+
+.trace-sub-description {
+  max-width: 500px; /* Matches the width of the top paragraph for symmetry */
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--trace-text-muted);
+  margin: 0;
+}
+
+/* --- Decorative Divider --- */
+.trace-divider {
+  width: 100%;
+  max-width: 1200px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 77, 41, 0.5) 0%, transparent 50%);
+  margin-top: 80px;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 900px) {
+  .trace-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .trace-content-left {
+    max-width: 100%;
+  }
+
+  .trace-bottom-content {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* Smooth Floating Animation for the 3D Object */
+@keyframes float-spin {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
