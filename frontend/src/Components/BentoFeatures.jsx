@@ -60,7 +60,6 @@ const BentoFeatures = () => {
             <p className="bento-desc">
               Log medicine batches on your preferred blockchain and verify
               provenance instantly through secure, automated smart contracts.
-              Enjoy seamless cross-chain access and optimized supply chain visibility.
             </p>
           </div>
 
