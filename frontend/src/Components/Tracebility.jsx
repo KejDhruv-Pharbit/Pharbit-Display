@@ -1,0 +1,67 @@
+import "../Styles/Components/Tracebility.css"
+
+const TraceLayer = () => {
+  return (
+    <section className="trace-section">
+      <div className="trace-container">
+        
+        {/* Top Content Row */}
+        <div className="trace-row-top">
+          <div className="trace-col-left">
+            <h2 className="trace-heading">
+              One Traceability <br /> Layer. Every <br /> Medicine Batch.
+            </h2>
+            <p className="trace-para">
+              Log medicine batches on your preferred blockchain and start 
+              verifying provenance instantly through secure, automated 
+              smart contracts. Enjoy seamless cross-chain access, optimized 
+              visibility, real-time tracking, and full control of your supply chain—no 
+              intermediaries, just transparent, efficient 
+              decentralized tracking working for you.
+            </p>
+          </div>
+
+          <div className="trace-col-right">
+            <div className="trace-icon-wrapper">
+              {/* Background radial glow */}
+              <div className="trace-icon-glow"></div>
+              
+              {/* Geometric SVG Cube Icon */}
+              <svg className="trace-svg-cube" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Main Wireframe Structure */}
+                <path d="M100 20L170 60V140L100 180L30 140V60L100 20Z" stroke="#ff4d29" strokeWidth="2"/>
+                <path d="M100 20V100L170 140" stroke="#ff4d29" strokeWidth="2"/>
+                <path d="M100 100L30 140" stroke="#ff4d29" strokeWidth="2"/>
+                <path d="M30 60L100 100L170 60" stroke="#ff4d29" strokeWidth="2"/>
+                {/* Secondary Cross Lines for Depth */}
+                <path d="M65 40L65 120" stroke="#ff4d29" strokeWidth="1" opacity="0.5"/>
+                <path d="M135 40L135 120" stroke="#ff4d29" strokeWidth="1" opacity="0.5"/>
+                <path d="M100 180V100" stroke="#ff4d29" strokeWidth="1" opacity="0.5"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Description Row */}
+        <div className="trace-row-bottom">
+          <div className="trace-col-empty"></div> {/* Used for spacing alignment */}
+          <div className="trace-col-text">
+            <p className="trace-para-small">
+              Our protocol intelligently routes batch data across multiple 
+              blockchains using secure, trust-minimized cross-chain 
+              communication. It ensures seamless asset transfers, optimized 
+              data efficiency, reduced fragmentation, and consistent 
+              execution—allowing pharmacies and distributors to access 
+              deep traceability across ecosystems without friction.
+            </p>
+          </div>
+        </div>
+
+        {/* Decorative Grid Line */}
+        <div className="trace-divider-line"></div>
+      </div>
+    </section>
+  );
+};
+
+export default TraceLayer;

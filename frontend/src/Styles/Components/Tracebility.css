@@ -1,0 +1,115 @@
+.trace-section {
+    margin-top: 30px ;
+  width: 100%;
+  background-color: #050505;
+  padding: 100px 0 150px 0; /* Adjust padding for spacing from Hero */
+  display: flex;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+}
+
+.trace-container {
+  max-width: 1100px;
+  width: 90%;
+  position: relative;
+}
+
+/* --- Layout Structure --- */
+.trace-row-top {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+/* --- Left Column Typography --- */
+.trace-heading {
+  font-size: 60px;
+  line-height: 1.05;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 40px;
+  letter-spacing: -2px;
+}
+
+.trace-para {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #a1a1aa;
+  max-width: 480px;
+}
+
+/* --- Right Column Visuals --- */
+.trace-icon-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+.trace-icon-glow {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(255, 77, 41, 0.2) 0%, transparent 70%);
+  filter: blur(40px);
+  z-index: 1;
+}
+
+.trace-svg-cube {
+  width: 320px;
+  height: 320px;
+  z-index: 2;
+  filter: drop-shadow(0 0 10px rgba(255, 77, 41, 0.3));
+  animation: trace-float 8s ease-in-out infinite;
+}
+
+/* --- Bottom Alignment --- */
+.trace-row-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Shifts text to the right half */
+  margin-top: -20px;
+}
+
+.trace-para-small {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #71717a;
+  padding-left: 20px;
+}
+
+/* --- Decorative Divider --- */
+.trace-divider-line {
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  border-top: 1px solid rgba(255, 77, 41, 0.15);
+  border-right: 1px solid rgba(255, 77, 41, 0.15);
+  opacity: 0.6;
+}
+
+/* Floating Animation */
+@keyframes trace-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 900px) {
+  .trace-row-top, .trace-row-bottom {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .trace-para, .trace-para-small {
+    max-width: 100%;
+    padding: 0;
+  }
+  .trace-heading {
+    font-size: 42px;
+  }
+}

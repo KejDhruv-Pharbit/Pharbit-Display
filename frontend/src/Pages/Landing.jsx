@@ -1,6 +1,7 @@
 import Navbar from '../Components/Navbar';
 import MapBackground from '../Components/MapBackground';
 import "../Styles/Pages/Hero.css"
+import TraceLayer from '../Components/Tracebility';
 
 const Landing = () => {
   return (
@@ -34,6 +35,8 @@ const Landing = () => {
           <button className="ph-btn-docs">View Documentation</button>
         </div>
       </div>
+
+       <TraceLayer />
     </section>
   );
 };
