@@ -23,9 +23,18 @@
   max-width: 1160px;
   width: 90%;
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto auto;
   gap: 20px;
+}
+
+/* Improve layout balance */
+.bento-card:nth-child(1) {
+  grid-column: span 2;
+}
+
+.bento-card:nth-child(4) {
+  grid-column: span 2;
 }
  
 /* ─── Card Base ────────────────────────────────────────────────────────────── */
@@ -33,7 +42,7 @@
   background: #070707;
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 24px;
-  padding: 40px;
+  padding: 28px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -65,11 +74,12 @@
 }
  
 .bento-card--wide {
-  min-height: 200px;
+  grid-column: span 2;
+  min-height: 220px;
 }
- 
+
 .bento-card--square {
-  min-height: 300px;
+  min-height: 220px;
 }
  
 /* ─── Card Content ─────────────────────────────────────────────────────────── */
@@ -248,4 +258,38 @@
   .bento-main-title {
     font-size: 40px;
   }
+}
+
+.bento-shipping-flow {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.bento-ship-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 32px;
+  color: #a1a1aa;
+}
+
+.bento-ship-arrow {
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bento-dot-line {
+  width: 100%;
+  height: 2px;
+  background: repeating-linear-gradient(
+    to right,
+    #00d4ff 0px,
+    #00d4ff 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  opacity: 0.7;
 }
