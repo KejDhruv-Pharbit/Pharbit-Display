@@ -6,7 +6,28 @@ import Globe3D from "react-globe.gl";
 const FaqSection = () => {
 
   const globeRef = useRef(); 
+useEffect(() => {
+  const elements = document.querySelectorAll(".faq-animate");
+  
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("faq-visible");
+          // Optional: stop observing once visible to boost performance
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { 
+      threshold: 0.15, // Trigger when 15% of the element is visible
+      rootMargin: "0px 0px -50px 0px" // Trigger slightly before it hits the bottom
+    }
+  );
 
+  elements.forEach((el) => observer.observe(el));
+  return () => observer.disconnect();
+}, []); 
  useEffect(() => {
   if (globeRef.current) {
     const controls = globeRef.current.controls();

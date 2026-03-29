@@ -199,3 +199,46 @@
   filter: blur(60px);
   z-index: 1;
 }
+
+
+
+/* --- Scroll Animations --- */
+
+/* Initial state: Hidden and shifted down */
+.faq-animate {
+  opacity: 0;
+  transform: translateY(50px); /* Adjust distance as needed */
+  transition: opacity 1.2s cubic-bezier(0.21, 0.45, 0.32, 0.9), 
+              transform 1.2s cubic-bezier(0.21, 0.45, 0.32, 0.9);
+  will-change: opacity, transform; /* Optimization for smoother scroll */
+}
+
+/* State when scrolled into view */
+.faq-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger the Right side (Accordion) so it feels more fluid */
+.faq-right.faq-visible {
+  transition-delay: 0.2s; /* Globe appears first, then Accordion */
+}
+
+/* Optional: Stagger individual FAQ items if you want a premium feel */
+.faq-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease-out;
+}
+
+.faq-visible .faq-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Apply delays to each item in the list */
+.faq-visible .faq-item:nth-child(1) { transition-delay: 0.3s; }
+.faq-visible .faq-item:nth-child(2) { transition-delay: 0.4s; }
+.faq-visible .faq-item:nth-child(3) { transition-delay: 0.5s; }
+.faq-visible .faq-item:nth-child(4) { transition-delay: 0.6s; }
+.faq-visible .faq-item:nth-child(5) { transition-delay: 0.7s; }
