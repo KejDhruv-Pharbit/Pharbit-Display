@@ -1,0 +1,201 @@
+.faq-section {
+  width: 100%;
+  background-color: #050505;
+  padding: 100px 0;
+  display: flex;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+}
+
+.faq-container {
+  max-width: 1200px;
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+/* Adjust left section position */
+.faq-left {
+  transform: translateY(-40px);
+}
+
+/* --- Left Side Content --- */
+.faq-main-title {
+  font-size: 42px;
+  margin-top: 0px ;
+  color: #fff;
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 45px;
+  letter-spacing: -1.5px;
+}
+
+.faq-subtext {
+  color: #888;
+  font-size: 16px;
+  max-width: 400px;
+  line-height: 1.6;
+  margin-bottom: 50px;
+}
+
+/* --- Globe Visual --- */
+.faq-globe-wrapper {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.faq-globe-icon {
+  animation: globeRotate 20s linear infinite;
+  filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.4));
+  z-index: 2;
+}
+
+.faq-globe-glow {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.2) 0%, transparent 70%);
+  filter: blur(40px);
+}
+
+@keyframes globeRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* --- FAQ Right Side (Accordion) --- */
+.faq-left {
+    margin-top: 0px ;
+}
+.faq-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(0, 212, 255, 0.3);
+}
+
+.faq-item--active {
+  /* Using your theme's orange-glow from the previous section image */
+  background: linear-gradient(to right, rgba(0, 212, 255, 0.1), rgba(0, 212, 255, 0.02));
+  border-color: rgba(0, 212, 255, 0.5);
+}
+
+.faq-question-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question-text {
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.faq-toggle-icon {
+  color: #00d4ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 212, 255, 0.1);
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.faq-answer-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+}
+
+.faq-answer--open {
+  max-height: 200px; /* Adjust based on content */
+  margin-top: 16px;
+  opacity: 1;
+}
+
+.faq-answer-text {
+  color: #aaa;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* --- Scroll Animations --- */
+.faq-animate {
+  opacity: 0;
+  transition: all 0.8s ease-out;
+}
+
+.faq-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+  .faq-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .faq-subtext {
+    margin: 0 auto 40px;
+  }
+  .faq-globe-wrapper {
+    margin: 0 auto 40px;
+  }
+  .faq-main-title {
+    font-size: 36px;
+  }
+}
+
+/* ===== 3D GLOBE ===== */
+.faq-globe-wrapper {
+  position: relative;
+  width: 420px;
+  height: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.faq-globe-canvas {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+/* 🔥 Orange Glow */
+.faq-globe-glow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 77, 41, 0.35) 0%,
+    rgba(255, 120, 80, 0.15) 40%,
+    transparent 70%
+  );
+  filter: blur(60px);
+  z-index: 1;
+}

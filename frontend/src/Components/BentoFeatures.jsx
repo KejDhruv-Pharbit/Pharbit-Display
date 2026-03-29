@@ -119,22 +119,23 @@ const BentoFeatures = () => {
   
   {/* The icon grid now represents a "Verification Matrix" */}
   <div className="bento-icon-grid">
-    <div className="bento-icon-cell"><ShieldCheck size={15} /></div>
-    <div className="bento-icon-cell"><Lock size={15} /></div>
-    <div className="bento-icon-cell"><Database size={15} /></div>
-    <div className="bento-icon-cell"><Zap size={15} /></div>
-    <div className="bento-icon-cell"><ShieldCheck size={15} /></div>
-    
-    {/* Active cell representing the 'Verified' scan */}
-    <div className="bento-icon-cell bento-icon-cell--active">
-      <ShieldCheck size={18} strokeWidth={2.5} />
-    </div>
-    
-    <div className="bento-icon-cell"><Lock size={15} /></div>
-    <div className="bento-icon-cell"><Database size={15} /></div>
-    <div className="bento-icon-cell"><ShieldCheck size={15} /></div>
-    <div className="bento-icon-cell"><Zap size={15} /></div>
+  <div className="bento-icon-cell"><ShieldCheck size={30} /></div>
+  <div className="bento-icon-cell"><Lock size={30} /></div>
+  <div className="bento-icon-cell"><Database size={30} /></div>
+  <div className="bento-icon-cell"><Globe size={30} /></div>
+  <div className="bento-icon-cell"><Zap size={30} /></div>
+
+  <div className="bento-icon-cell"><Truck size={30} /></div>
+  <div className="bento-icon-cell"><Building2 size={30} /></div>
+
+  {/* Active verification node */}
+  <div className="bento-icon-cell ">
+    <ShieldCheck size={35} strokeWidth={2.5} />
   </div>
+
+  <div className="bento-icon-cell"><Store size={30} /></div>
+  <div className="bento-icon-cell"><Lock size={30} /></div>
+</div>
 </div>
  
       </div>

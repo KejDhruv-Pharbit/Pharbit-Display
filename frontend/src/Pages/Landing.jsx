@@ -4,6 +4,7 @@ import "../Styles/Pages/Hero.css"
 import TraceLayer from '../Components/Tracebility';
 import { useEffect } from "react";
 import BentoFeatures from '../Components/BentoFeatures';
+import FaqSection from '../Components/FaqSection';
 
 const Landing = () => {
 
@@ -66,7 +67,9 @@ useEffect(() => {
       <TraceLayer />
       
 
-      <BentoFeatures/>
+      <BentoFeatures />
+      
+      <FaqSection/>
     </section>
   );
 };

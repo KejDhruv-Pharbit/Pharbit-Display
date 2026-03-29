@@ -208,30 +208,31 @@
 /* ─── Icon Grid (Card 3) ───────────────────────────────────────────────────── */
 .bento-icon-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 12px;
+  grid-template-columns: repeat(5, 60px);
+  justify-content: center;   /* 🔥 centers whole grid */
+  align-content: center;
+  gap: 50px;
   margin-top: 36px;
 }
- 
+
 .bento-icon-cell {
-  width: 48px;
-  height: 48px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  width: 70px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgba(255, 255, 255, 0.3);
-  transition: all 0.2s ease;
+  color: rgba(255, 255, 255, 0.35);
+  transition: all 0.25s ease;
 }
- 
-.bento-icon-cell--active {
-  background: #00d4ff;
-  border-color: #00d4ff;
-  color: #ffffff;
-  box-shadow: 0 0 24px rgba(0, 212, 255, 0.35);
+
+.bento-icon-cell:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 212, 255, 0.3);
 }
+
  
 /* ─── Shield (Card 4) ──────────────────────────────────────────────────────── */
 .bento-shield-wrapper {
@@ -335,7 +336,6 @@
     filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.9));
   }
 }
-
 
 
 /* Initial states */
