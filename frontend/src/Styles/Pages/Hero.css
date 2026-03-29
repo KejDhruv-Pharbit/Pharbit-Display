@@ -3,7 +3,6 @@
   width: 100%; 
  min-height: 100vh ; 
   display: flex;
-  background-color: transparent ;
   flex-direction: column;
   align-items: center;
   overflow: hidden;
@@ -15,15 +14,16 @@
   z-index: 10;
 
   width: 100%;                 /* 🔥 full width */
-    align-items: center;
+  align-items: center;
   margin: 100px auto 0 auto;  /* 🔥 THIS centers horizontally */
 
   display: flex;
   flex-direction: column;
-  align-items: center;
   text-align: center;
 
   padding: 0 20px;
+  transition: filter 1.2s ease, opacity 1.2s ease;
+  will-change: filter, opacity;
 }
 /* The Status Badge */
 .ph-hero-badge {
@@ -153,15 +153,6 @@
   transform: translateY(0);
 }
 
-/* LEFT → RIGHT subtle motion */
-.ph-hero-badge {
-  transform: translateX(-40px);
-}
-
-.ph-hero-actions {
-  transform: translateX(40px);
-}
-
 /* MAP GLOW BOOST (if background exists) */
 .map-svg-layer {
   transition: filter 3.5s ease, opacity 1.2s ease;
@@ -173,11 +164,6 @@
 }
 
 
-
-.ph-hero-layer {
-  transition: filter 1.2s ease, opacity 1.2s ease;
-  will-change: filter, opacity;
-}
 
 .ph-hero-layer.blurred-out {
   filter: blur(18px);
