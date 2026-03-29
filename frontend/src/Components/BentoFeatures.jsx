@@ -1,15 +1,38 @@
 import { LineChart, DollarSign, Share2, ShieldCheck, Zap, Database, Globe, Lock, Truck, Building2, Store } from 'lucide-react';
 import "../Styles/Components/BentoFeatures.css"
+import { useEffect } from 'react';
  
 const BentoFeatures = () => {
+  useEffect(() => {
+    const elements = document.querySelectorAll(".bento-card, .bento-main-title");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("bento-visible");
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="bento-section">
-      <h2 className="bento-main-title">Designed for <br /> pharma supply chain</h2>
+      {/* Added bento-animate-up */}
+      <h2 className="bento-main-title bento-animate-up">
+        Designed for <br /> pharma supply chain
+      </h2>
  
       <div className="bento-grid">
  
-        {/* Card 1 — Wide Left Top */}
-        <div className="bento-card bento-card--wide">
+        {/* Card 1 — Wide Left Top (Added bento-animate-left) */}
+        <div className="bento-card bento-card--wide bento-animate-left">
           <div className="bento-content">
             <h3 className="bento-title">Seamless Shipping</h3>
             <p className="bento-desc">
@@ -19,42 +42,32 @@ const BentoFeatures = () => {
           </div>
           <div className="bento-visual bento-visual--center">
             <div className="bento-shipping-flow">
-
               <div className="bento-ship-node">
                 <Building2 size={50} color="#00d4ff" />
               </div>
-
               <div className="bento-ship-arrow"><span className="bento-dot-line"></span></div>
-
               <div className="bento-ship-node">
                 <Truck size={40} color="#ff4d29" />
               </div>
-
               <div className="bento-ship-arrow"><span className="bento-dot-line"></span></div>
-
               <div className="bento-ship-node">
                 <Building2 size={45} color="#00d4ff" />
               </div>
-
               <div className="bento-ship-arrow"><span className="bento-dot-line"></span></div>
-
               <div className="bento-ship-node">
                 <Truck size={40} color="#ff4d29" />
               </div>
-
               <div className="bento-ship-arrow"><span className="bento-dot-line"></span></div>
-
               <div className="bento-ship-node">
                 <Store size={50} color="#00d4ff" />
               </div>
-
             </div>
             <div className="bento-glow bento-glow--subtle"></div>
           </div>
         </div>
  
-        {/* Card 2 — Square Right Top */}
-        <div className="bento-card bento-card--square">
+        {/* Card 2 — Square Right Top (Added bento-animate-right) */}
+        <div className="bento-card bento-card--square bento-animate-right">
           <div className="bento-content">
             <h3 className="bento-title">On-Chain Traceability</h3>
             <p className="bento-desc">
@@ -62,7 +75,6 @@ const BentoFeatures = () => {
               provenance instantly through secure, automated smart contracts.
             </p>
           </div>
-
           <div className="bento-visual bento-visual--center">
             <div className="bento-orbital-ring bento-orbital-ring--outer">
               <div className="bento-orbital-ring bento-orbital-ring--inner">
@@ -75,8 +87,8 @@ const BentoFeatures = () => {
           </div>
         </div>
  
-        {/* Card 3 — Square Left Bottom */}
-        <div className="bento-card bento-card--square">
+        {/* Card 3 — Square Left Bottom (Added bento-animate-left) */}
+        <div className="bento-card bento-card--square bento-animate-left">
           <div className="bento-content">
             <h3 className="bento-title">Enhanced Security</h3>
             <p className="bento-desc">
@@ -93,28 +105,37 @@ const BentoFeatures = () => {
           </div>
         </div>
  
-        {/* Card 4 — Wide Right Bottom */}
-        <div className="bento-card bento-card--wide">
-          <div className="bento-content">
-            <h3 className="bento-title">Cross-chain Innovation</h3>
-            <p className="bento-desc">
-              Bridging disparate networks for seamless cross-border
-              traceability through trust-minimized cross-chain communication.
-            </p>
-          </div>
-          <div className="bento-icon-grid">
-            <div className="bento-icon-cell"><Database size={15} /></div>
-            <div className="bento-icon-cell"><Globe size={15} /></div>
-            <div className="bento-icon-cell"><Lock size={15} /></div>
-            <div className="bento-icon-cell"><Zap size={15} /></div>
-            <div className="bento-icon-cell"><LineChart size={15} /></div>
-            <div className="bento-icon-cell bento-icon-cell--active"><Share2 size={17} /></div>
-            <div className="bento-icon-cell"><DollarSign size={15} /></div>
-            <div className="bento-icon-cell"><Globe size={15} /></div>
-            <div className="bento-icon-cell"><Lock size={15} /></div>
-            <div className="bento-icon-cell"><Database size={15} /></div>
-          </div>
-        </div>
+        {/* Card 4 — Wide Right Bottom (Added bento-animate-right) */}
+      {/* Card 4 — Wide Right Bottom (Anti-Counterfeit Part) */}
+<div className="bento-card bento-card--wide bento-animate-right">
+  <div className="bento-content">
+    <h3 className="bento-title">Anti-Counterfeit Protocol</h3>
+    <p className="bento-desc">
+      Eliminate illicit trade with unique cryptographic identifiers for every 
+      unit. Instantly verify batch authenticity and detect anomalies 
+      using decentralized attestation before products reach the patient.
+    </p>
+  </div>
+  
+  {/* The icon grid now represents a "Verification Matrix" */}
+  <div className="bento-icon-grid">
+    <div className="bento-icon-cell"><ShieldCheck size={15} /></div>
+    <div className="bento-icon-cell"><Lock size={15} /></div>
+    <div className="bento-icon-cell"><Database size={15} /></div>
+    <div className="bento-icon-cell"><Zap size={15} /></div>
+    <div className="bento-icon-cell"><ShieldCheck size={15} /></div>
+    
+    {/* Active cell representing the 'Verified' scan */}
+    <div className="bento-icon-cell bento-icon-cell--active">
+      <ShieldCheck size={18} strokeWidth={2.5} />
+    </div>
+    
+    <div className="bento-icon-cell"><Lock size={15} /></div>
+    <div className="bento-icon-cell"><Database size={15} /></div>
+    <div className="bento-icon-cell"><ShieldCheck size={15} /></div>
+    <div className="bento-icon-cell"><Zap size={15} /></div>
+  </div>
+</div>
  
       </div>
     </section>
