@@ -42,10 +42,7 @@ useEffect(() => {
 
       {/* 3. The Main Content Layer */}
       <div className="ph-hero-layer">
-        <div className="ph-hero-badge">
-          <span className="ph-badge-dot"></span>
-          Lend & Borrow Across Blockchains. Instantly.
-        </div>
+       
 
         <h1 className="ph-hero-main-title">
           Cross-chain Supply <br /> 
