@@ -2,51 +2,63 @@ import Navbar from '../Components/Navbar';
 import MapBackground from '../Components/MapBackground';
 import "../Styles/Pages/Hero.css"
 import TraceLayer from '../Components/Tracebility';
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import BentoFeatures from '../Components/BentoFeatures';
 import FaqSection from '../Components/FaqSection';
 
 const Landing = () => {
+  const heroLayerRef = useRef(null);
 
-useEffect(() => {
-  const elements = document.querySelectorAll(
-    ".ph-hero-badge, .ph-hero-main-title, .ph-hero-description, .ph-hero-actions"
-  );
+  useEffect(() => {
+    const elements = document.querySelectorAll(
+      ".ph-hero-badge, .ph-hero-main-title, .ph-hero-description, .ph-hero-actions"
+    );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("ph-visible");
+        });
+      },
+      { threshold: 0.2 }
+    );
+    elements.forEach((el) => observer.observe(el));
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("ph-visible");
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
+    const map = document.querySelector(".map-svg-layer");
+    if (map) map.classList.add("map-visible");
 
-  elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
-  // optional: map glow trigger
-  const map = document.querySelector(".map-svg-layer");
-  if (map) map.classList.add("map-visible");
+  // Only blur the hero layer — no wrapper divs around your components
+  useEffect(() => {
+    const hero = heroLayerRef.current;
+    if (!hero) return;
 
-  return () => observer.disconnect();
-}, []);
+    const handleScroll = () => {
+      const rect = hero.getBoundingClientRect();
+      const scrolledPastRatio = -rect.top / rect.height;
+
+      if (scrolledPastRatio > 0.60) {
+        hero.classList.add("blurred-out");
+      } else {
+        hero.classList.remove("blurred-out");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section className="ph-hero-container">
-      {/* 1. The Dotted Map & Glows (Behind everything) */}
       <MapBackground />
-
-      {/* 2. The Navigation Bar (Top) */}
       <Navbar />
 
-      {/* 3. The Main Content Layer */}
-      <div className="ph-hero-layer">
-       
-
+      {/* Only this div gets the blur — your own element, no component touched */}
+      <div className="ph-hero-layer" ref={heroLayerRef}>
         <h1 className="ph-hero-main-title">
-          Cross-chain Supply <br /> 
-          Protocol Bridging the Worlds <br /> 
+          Cross-chain Supply <br />
+          Protocol Bridging the Worlds <br />
           of Pharma and Blockchain
         </h1>
 
@@ -61,12 +73,10 @@ useEffect(() => {
         </div>
       </div>
 
+      {/* No wrappers — components render exactly as before */}
       <TraceLayer />
-      
-
       <BentoFeatures />
-      
-      <FaqSection/>
+      <FaqSection />
     </section>
   );
 };

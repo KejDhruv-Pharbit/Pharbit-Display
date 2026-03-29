@@ -1,8 +1,10 @@
 import { LineChart, DollarSign, Share2, ShieldCheck, Zap, Database, Globe, Lock, Truck, Building2, Store } from 'lucide-react';
 import "../Styles/Components/BentoFeatures.css"
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
  
 const BentoFeatures = () => {
+  const sectionRef = useRef(null);
+
   useEffect(() => {
     const elements = document.querySelectorAll(".bento-card, .bento-main-title");
 
@@ -19,11 +21,29 @@ const BentoFeatures = () => {
 
     elements.forEach((el) => observer.observe(el));
 
-    return () => observer.disconnect();
+    // --- Blur on Scroll ---
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const scrolledPastRatio = -rect.top / rect.height;
+
+      if (scrolledPastRatio > 0.65) {
+        sectionRef.current.classList.add("bento-blurred-out");
+      } else {
+        sectionRef.current.classList.remove("bento-blurred-out");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
-    <section className="bento-section">
+    <section className="bento-section" ref={sectionRef}>
       {/* Added bento-animate-up */}
       <h2 className="bento-main-title bento-animate-up">
         Designed for <br /> pharma supply chain

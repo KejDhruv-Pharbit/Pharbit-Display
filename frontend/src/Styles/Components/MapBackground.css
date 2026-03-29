@@ -1,10 +1,11 @@
 /* ================= WRAPPER ================= */
 .map-wrapper {
   position: absolute;
-  top: 80px; /* adjust based on your navbar height */
+  top: 160px;
   left: 0;
   width: 100%;
-  height: calc(100vh - 80px); /* full screen below navbar */
+  height: calc(100vh - 190px);
+
   background-color: transparent;
   overflow: hidden;
   z-index: 0;
@@ -25,28 +26,30 @@
   align-items: center;
 
   pointer-events: none;
+  overflow: hidden; /* 🔥 prevents edge bleed */
 }
 
-/* 🔥 THIS IS THE MAGIC */
+/* ================= IMAGE ================= */
 .map-svg-layer img {
+  width: 110%;
+  height: 110%;
+  object-fit: cover;
+
   opacity: 0;
   transform: scale(0.9);
   transition: all 1.2s ease;
-
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
 
   mix-blend-mode: screen;
 
   filter: brightness(1.8) contrast(1.3)
           drop-shadow(0 0 60px rgba(0, 212, 255, 0.6));
 
-  /* 🔥 SOFT FADE ALL EDGES */
-  mask-image: radial-gradient(circle at center, black 55%, transparent 100%);
-  -webkit-mask-image: radial-gradient(circle at center, black 55%, transparent 100%);
+  /* 🔥 EDGE FADE */
+  mask-image: radial-gradient(circle at 50% 40%, black 45%, transparent 85%);
+  -webkit-mask-image: radial-gradient(circle at 50% 40%, black 45%, transparent 85%);
 }
-/* ================= GLOW BASE ================= */
+
+/* ================= GLOWS ================= */
 .map-glow {
   position: absolute;
   border-radius: 50%;
@@ -55,7 +58,6 @@
   z-index: 0;
 }
 
-/* ================= ORANGE GLOW ================= */
 .orange-glow {
   width: 600px;
   height: 600px;
@@ -64,7 +66,6 @@
   left: -10%;
 }
 
-/* ================= BLUE GLOW ================= */
 .blue-glow {
   width: 500px;
   height: 500px;
@@ -73,28 +74,46 @@
   right: -5%;
 }
 
+/* ================= MAIN OVERLAY ================= */
 .map-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-
   pointer-events: none;
+  z-index: 2;
 
-  /* 🔥 This hides the hard edge */
   background: linear-gradient(
     to bottom,
     #050505 0%,
-    transparent 25%,
-    transparent 75%,
+    transparent 20%,
+    transparent 55%,
+    rgba(5, 5, 5, 0.85) 75%,
     #050505 100%
   );
-
-  z-index: 2;
 }
 
-/* ===== MAP LOAD ANIMATION ===== */
+/* ================= BOTTOM FIX (IMPORTANT) ================= */
+.map-overlay-bottom {
+  position: absolute;
+  bottom: -2px; /* 🔥 kills the line */
+  left: 0;
+  width: 100%;
+  height: 140px;
+
+  background: linear-gradient(
+    to top,
+    #050505 0%,
+    rgba(5, 5, 5, 0.9) 40%,
+    transparent 100%
+  );
+
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* ================= LOAD ANIMATION ================= */
 .map-visible img {
   opacity: 0.3;
   transform: scale(1);
