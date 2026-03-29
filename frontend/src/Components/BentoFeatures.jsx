@@ -67,7 +67,7 @@ const BentoFeatures = () => {
             <div className="bento-orbital-ring bento-orbital-ring--outer">
               <div className="bento-orbital-ring bento-orbital-ring--inner">
                 <div className="bento-orbital-core">
-                  <LineChart color="#00d4ff" size={28} strokeWidth={1.5} />
+                  <LineChart color="#00d4ff" size={28} strokeWidth={1.5} style={{ transform: 'none' }} />
                 </div>
               </div>
             </div>

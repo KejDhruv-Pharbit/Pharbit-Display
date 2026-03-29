@@ -313,4 +313,25 @@
     transparent 12px
   );
   opacity: 0.7;
+  background-size: 12px 2px;
+  filter: drop-shadow(0 0 6px rgba(0, 212, 255, 0.6));
+  animation: dashMove 1s linear infinite, glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes dashMove {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 12px 0;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px rgba(0, 212, 255, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.9));
+  }
 }
