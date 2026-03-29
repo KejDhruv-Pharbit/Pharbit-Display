@@ -1,26 +1,47 @@
 import "../Styles/Components/Tracebility.css"
 import { useEffect } from "react";
+import { useRef } from "react";
 const TraceLayer = () => {
+  const cubeRef = useRef(null);
 
 useEffect(() => {
+  // --- Existing Intersection Observer ---
   const elements = document.querySelectorAll(
     ".trace-col-left, .trace-col-right, .trace-row-bottom"
   );
-
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("trace-visible");
-        }
+        if (entry.isIntersecting) entry.target.classList.add("trace-visible");
       });
     },
     { threshold: 0.2 }
   );
-
   elements.forEach((el) => observer.observe(el));
 
-  return () => observer.disconnect();
+  // --- New Dynamic Glow Logic ---
+  const handleScroll = () => {
+    if (!cubeRef.current) return;
+
+    const rect = cubeRef.current.getBoundingClientRect();
+    const viewportCenter = window.innerHeight / 2;
+    const elementCenter = rect.top + rect.height / 2;
+
+    // Calculate distance from center (0 = perfect center)
+    const distance = Math.abs(viewportCenter - elementCenter);
+    
+    // Normalize: 1 at center, 0 when 600px away
+    const intensity = Math.max(0, 1 - distance / 600);
+
+    // Apply value to CSS Variable
+    cubeRef.current.style.setProperty('--glow-opacity', intensity);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => {
+    observer.disconnect();
+    window.removeEventListener("scroll", handleScroll);
+  };
 }, []);
   return (
     <section className="trace-section">
@@ -41,7 +62,7 @@ useEffect(() => {
             </p>
           </div>
 
-          <div className="trace-col-right">
+          <div className="trace-col-right" ref={cubeRef}>
             <div className="trace-icon-wrapper">
               {/* Background radial glow */}
               <div className="trace-icon-glow"></div>

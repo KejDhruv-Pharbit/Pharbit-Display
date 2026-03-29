@@ -240,3 +240,44 @@
   opacity: 1;
   transform: translateX(0);
 }
+
+
+/* 1. The radial glow behind the cube */
+.trace-icon-glow {
+  position: absolute;
+  /* Use the variable from JS, default to 0.1 if not scrolling yet */
+  --intensity: var(--glow-opacity, 0.1);
+
+  /* This makes the glow physically grow as it hits the center */
+  width: calc(300px + (150px * var(--intensity)));
+  height: calc(300px + (150px * var(--intensity)));
+
+  background: radial-gradient(
+    circle, 
+    rgba(255, 77, 41, calc(0.5 * var(--intensity))) 0%, 
+    rgba(139, 69, 19, calc(0.2 * var(--intensity))) 40%, 
+    transparent 70%
+  );
+  
+  /* Increase blur as it hits the center */
+  filter: blur(calc(30px + (40px * var(--intensity))));
+  z-index: 1;
+  
+  /* Critical: Add a small transition so it doesn't flicker/stutter */
+  transition: width 0.1s ease-out, height 0.1s ease-out, filter 0.1s ease-out;
+}
+
+/* 2. The Cube itself (the neon lines) */
+.trace-svg-cube {
+  width: 350px;
+  height: 350px;
+  z-index: 2;
+  
+  /* This makes the orange lines "light up" more at the center */
+  filter: drop-shadow(
+    0 0 calc(2px + (12px * var(--glow-opacity, 0))) 
+    rgba(255, 77, 41, calc(0.2 + var(--glow-opacity, 0)))
+  );
+  
+  animation: trace-float 6s ease-in-out infinite;
+}
