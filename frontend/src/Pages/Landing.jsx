@@ -5,6 +5,7 @@ import TraceLayer from '../Components/Tracebility';
 import { useEffect, useRef } from "react";
 import BentoFeatures from '../Components/BentoFeatures';
 import FaqSection from '../Components/FaqSection';
+import VirokaFooter from '../Components/virokafooter';
 
 const Landing = () => {
   const heroLayerRef = useRef(null);
@@ -77,6 +78,7 @@ const Landing = () => {
       <TraceLayer />
       <BentoFeatures />
       <FaqSection />
+      <VirokaFooter/>
     </section>
   );
 };

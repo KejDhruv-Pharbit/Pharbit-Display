@@ -35,7 +35,7 @@ const TraceLayer = () => {
         const rect = sectionRef.current.getBoundingClientRect();
         const scrolledPastRatio = -rect.top / rect.height;
 
-        if (scrolledPastRatio > 0.75) {
+        if (scrolledPastRatio > 0.65) {
           sectionRef.current.classList.add("trace-blurred-out");
         } else {
           sectionRef.current.classList.remove("trace-blurred-out");
