@@ -1,187 +1,214 @@
 .footer-viroka {
   width: 100%;
-  padding: 100px 20px 20px;
-  margin-bottom: 0px ;
-  padding-bottom: 0px ;
+  padding: 80px 0 20px;
+  margin-top: 100px ;
+  background-color: #050505;
   color: #fff;
   font-family: 'Inter', sans-serif;
+  border-top: 1px solid rgba(255, 255, 255, 0.04); /* Thin top border */
+}
+.footer-viroka {
   position: relative;
   overflow: hidden;
 }
-
-/* 🔥 ORANGE GRADIENT FROM BOTTOM */
-.footer-viroka::before {
+.footer-viroka::after {
   content: "";
   position: absolute;
-  bottom: -200px;
-  left: 0;
-  width: 100%;
-  height: 400px;
+  bottom: -150px;
+  left: -150px;
+
+  width: 500px;
+  height: 500px;
 
   background: radial-gradient(
     circle,
     rgba(255, 77, 41, 0.25),
+    rgba(255, 77, 41, 0.12),
     transparent 70%
   );
 
   filter: blur(120px);
+  pointer-events: none;
   z-index: 0;
 }
 
-/* GRID */
-.footer-viroka-grid {
-  position: relative;
-  z-index: 2;
-
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 60px;
-  max-width: 90% ;
+.footer-viroka-container {
+  max-width: 1400px;
+  width: 90%;
   margin: 0 auto;
 }
 
-/* HEADINGS */
-.footer-viroka-heading,
-.footer-viroka-heading-small {
-  font-size: 14px;
-  color: #888;
-  margin-bottom: 20px;
-  letter-spacing: 1px;
+/* Flex layout to split Left (Links+News) and Right (Form) */
+.footer-layout-wrapper {
+  display: flex;
+  gap: 100px;
+  align-items: stretch; /* Makes form sidebar equal height to left content */
 }
 
-/* LIST */
-.footer-viroka-list {
-  list-style: none;
-  padding: 0;
+/* Left Content Area */
+.footer-left-content {
+  flex: 1.8;
+}
+
+.footer-columns-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+/* Internal separator between links and newsletter */
+.footer-viroka-line-internal {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 50px;
+}
+
+/* Lower Footer beside the form */
+.footer-viroka-lower-content {
+  padding-bottom: 40px;
+}
+
+.footer-viroka-update-heading {
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.footer-viroka-update-text {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 25px;
+  max-width: 450px;
+}
+
+/* Independent Sidebar Form */
+.footer-viroka-enquiry-sidebar {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.015);
+  border-left: 1px solid rgba(255, 255, 255, 0.05); /* Vertical Divider */
+  padding-left: 60px;
+  padding-bottom: 40px;
+}
+
+.footer-enquiry-sub {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.footer-viroka-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-viroka-input, 
+.footer-viroka-textarea {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 16px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.footer-viroka-textarea {
+  height: 160px; /* Taller form since it's a sidebar */
+  resize: none;
+}
+
+.footer-viroka-button {
+  background: #ff4d29;
+  color: #fff;
+  border: none;
+  padding: 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-top: 10px;
+}
+
+.footer-viroka-button:hover {
+  background: #ff6a4d;
+  box-shadow: 0 10px 30px rgba(255, 77, 41, 0.2);
+}
+
+/* Typography Grey-out */
+.footer-viroka-heading, 
+.footer-viroka-heading-small {
+  color: #fff; /* Dark grey headings */
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
 }
 
 .footer-viroka-list li {
+text-decoration: none ;
+  color: #888;
   font-size: 14px;
-  color: #ccc;
   margin-bottom: 12px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: 0.2s;
+}
+.footer-viroka-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-viroka-list li:hover {
   color: #ff4d29;
-  transform: translateX(4px);
 }
 
-/* FORM */
-.footer-viroka-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.footer-viroka-input,
-.footer-viroka-textarea {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  padding: 12px;
-  margin-bottom: 12px;
-  border-radius: 8px;
-  color: #fff;
-}
-
-.footer-viroka-textarea {
-  height: 90px;
-}
-
-.footer-viroka-button {
-  background: linear-gradient(90deg, #ff4d29, #ff7a5c);
-  border: none;
-  padding: 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-.footer-viroka-button:hover {
-  box-shadow: 0 0 20px rgba(255, 77, 41, 0.4);
-}
-
-/* LINE */
-.footer-viroka-line {
-  border-top: 1px solid rgba(255,255,255,0.08);
-  margin: 60px 0;
-}
-
-/* LOWER */
-.footer-viroka-lower {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 90% ;
-  margin: 0 auto;
-}
-
-.footer-viroka-update {
-  max-width: 500px;
-}
-
-.footer-viroka-update-heading {
-  font-size: 22px;
-  margin-bottom: 10px;
-}
-
-.footer-viroka-update-text {
-  color: #aaa;
-  font-size: 14px;
-}
-
-/* SUBSCRIBE */
+/* Subscribe Section */
 .footer-viroka-subscribe {
   display: flex;
+  gap: 12px;
 }
 
 .footer-viroka-input-subscribe {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  padding: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 14px;
   border-radius: 8px;
-  width: 260px;
-  margin-right: 12px;
+  width: 300px;
+  color: #fff;
 }
 
 .footer-viroka-button-join {
   background: #fff;
-  color: #000;
-  border: none;
-  padding: 12px 22px;
+  padding: 14px 30px;
   border-radius: 8px;
-  font-weight: 500;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
 }
 
-/* FINAL */
+/* Bottom Copyright */
 .footer-viroka-final {
   display: flex;
   justify-content: space-between;
-  margin-top: 50px;
-  font-size: 13px;
-  color: #777;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  font-size: 12px;
+  color: #333;
 }
 
 .footer-viroka-links span {
   margin-left: 20px;
-  cursor: pointer;
 }
 
-.footer-viroka-links span:hover {
-  color: #ff4d29;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .footer-viroka-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .footer-viroka-lower {
+/* Mobile */
+@media (max-width: 1100px) {
+  .footer-layout-wrapper {
     flex-direction: column;
-    gap: 20px;
+  }
+  .footer-viroka-enquiry-sidebar {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-left: 0;
+    padding-top: 40px;
   }
 }
