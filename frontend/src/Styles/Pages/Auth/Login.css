@@ -1,0 +1,133 @@
+
+.login-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background: #000;
+}
+
+/* LEFT SIDE */
+.login-left {
+  width: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  width: 300px;
+}
+
+.login-box h1 {
+  color: #fff;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.login-box p {
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: none;
+  background: #1a1a1a;
+  color: white;
+}
+
+.login-box input:focus {
+  outline: 1px solid #ff9100;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  background: #ff9100;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background: #e68200;
+}
+
+/* RIGHT SIDE */
+.login-right {
+  width: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+/* GLASS CARD */
+.robot-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(40px);
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow:
+    0 0 80px rgba(255, 145, 0, 0.2),
+    inset 0 0 40px rgba(255, 145, 0, 0.1);
+}
+
+/* GLOW */
+.glow {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #ff9100, transparent 70%);
+  filter: blur(120px);
+  animation: pulse 6s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.4); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.6; }
+}
+
+/* ROBOT */
+.robot-wrapper {
+  width: 350px;
+  height: 350px;
+  z-index: 2;
+}
+
+/* TEXT */
+.robot-text {
+  text-align: center;
+  margin-top: 20px;
+  z-index: 2;
+}
+
+.robot-text h2 {
+  color: white;
+  font-size: 24px;
+}
+
+.robot-text p {
+  color: #aaa;
+  font-size: 14px;
+}
+
+/* HOVER EFFECT */
+.robot-card:hover {
+  transform: scale(1.02);
+  transition: 0.3s ease;
+}
