@@ -48,10 +48,14 @@ const LoginPage = () => {
               />
             </div>
 
-            <button type="submit" className="login-button">
-              <span className="btn-text">AUTHORIZE</span>
-              <div className="btn-glow" />
-            </button>
+           <div className="form-actions">
+    <button type="submit" className="login-button">
+      AUTHORIZE
+    </button>
+    <a href="#forgot" className="forgot-password">
+      Forgot Password?
+    </a>
+  </div>
           </form>
 
           <footer className="login-footer">
