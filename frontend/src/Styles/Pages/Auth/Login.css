@@ -59,10 +59,23 @@
 }
 
 .login-header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-  letter-spacing: -1px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 100;         /* Extremely thin */
+  text-transform: uppercase; /* Looks better when spread */
+  letter-spacing: 12px;     /* The "Spread" effect */
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  color: var(--text-main);
+  
+  /* Optional: adds a very faint glow to the thin lines */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1); 
+  
+  /* Ensure it doesn't wrap awkwardly */
+  white-space: nowrap; 
+  
+  /* Animation from before */
+  animation: slideUp 0.8s ease forwards 0.5s;
+  opacity: 0;
 }
 
 .login-header p {
