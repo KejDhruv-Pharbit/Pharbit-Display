@@ -21,8 +21,8 @@ const LoginPage = () => {
         <div className="login-box">
           <header className="login-header">
             <span className="system-status">SYSTEM ONLINE</span>
-            <h1>Welcome Back</h1>
-            <p>Initialize your session to access NeuroCore</p>
+            <h1>Welcome Admin</h1>
+            <p>Initialize your session to access Pharbit</p>
           </header>
 
           <form onSubmit={handleSubmit} className="login-form">
@@ -30,7 +30,7 @@ const LoginPage = () => {
               <label>Identification</label>
               <input
                 type="email"
-                placeholder="email@neurocore.ai"
+                placeholder="email@pharbit.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -68,9 +68,9 @@ const LoginPage = () => {
           
           <div className="core-text">
             <div className="badge">VERSION 3.0.4</div>
-            <h2>NeuroCore</h2>
+            <h2>PHARBIT</h2>
             <div className="divider" />
-            <p>"Intelligence is engineered. Power is automated."</p>
+            <p>"Intelligence is engineered.<br/> Power is automated."</p>
           </div>
         </div>
       </section>
