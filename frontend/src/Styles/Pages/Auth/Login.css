@@ -208,3 +208,60 @@
   .login-right { display: none; }
   .login-left { width: 100%; border: none; }
 }
+
+/* --- ANIMATIONS --- */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Apply animations to elements */
+
+.login-left {
+  animation: slideRight 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.login-right {
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+/* Staggered load for form elements */
+.login-header .system-status { animation: fadeIn 1s ease forwards 0.4s; opacity: 0; }
+.login-header h1 { animation: slideUp 0.6s ease forwards 0.5s; opacity: 0; }
+.login-header p { animation: slideUp 0.6s ease forwards 0.6s; opacity: 0; }
+
+.input-group:nth-child(1) { animation: slideUp 0.6s ease forwards 0.7s; opacity: 0; }
+.input-group:nth-child(2) { animation: slideUp 0.6s ease forwards 0.8s; opacity: 0; }
+
+.login-button { 
+  animation: slideUp 0.6s ease forwards 0.9s; 
+  opacity: 0; 
+  /* Add a subtle pulse to the button after it loads */
+}
+
+.core-text {
+  animation: scaleIn 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.5s;
+  opacity: 0;
+}
+
+.ambient-glow {
+  animation: fadeIn 3s ease-in-out;
+}
+
+/* --- REST OF YOUR CSS REMAINS THE SAME --- */
