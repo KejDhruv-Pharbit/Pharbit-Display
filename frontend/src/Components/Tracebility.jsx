@@ -63,7 +63,7 @@ const TraceLayer = () => {
               Log medicine batches on a decentralized ledger and verify 
               provenance instantly through immutable, trustless smart 
               contracts. Gain seamless on-chain visibility, real-time 
-              tracking, and complete control over your supply chain — 
+              tracking, and complete control over your supply chain 
               without intermediaries, without compromise.
             </p>
           </div>
@@ -98,7 +98,7 @@ const TraceLayer = () => {
               attestation to ensure every record across the supply chain is 
               tamper-proof and permanently auditable. From the first 
               on-chain registration to the final settlement, every state 
-              transition is enforced by autonomous smart contract logic — 
+              transition is enforced by autonomous smart contract logic 
               eliminating single points of failure, reducing trust 
               assumptions, and delivering end-to-end transparency across 
               every node in the network.
