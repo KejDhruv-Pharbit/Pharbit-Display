@@ -137,6 +137,7 @@
 .login-right {
   width: 60%;
   display: flex;
+  background: #050505;;
   justify-content: center;
   align-items: center;
   position: relative;
