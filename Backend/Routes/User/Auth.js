@@ -42,7 +42,7 @@ router.post("/auth/login", async (req, res) => {
     }
 
     // 🔹 Step 3: Set cookie
-    res.cookie("Zoryvn_Token", session.access_token, {
+    res.cookie("Pharbit_Token", session.access_token, {
       httpOnly: true,
       secure: false,
       sameSite: "lax",

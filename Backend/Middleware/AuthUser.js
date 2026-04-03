@@ -1,7 +1,7 @@
 import supabase from "./supabase.js";
 
 export const getAuthUser = async (req) => {
-  const token = req.cookies?.Zoryvn_Token;
+  const token = req.cookies?.Pharbit_Token;
   if (!token) throw new Error("Unauthorized");
   const { data, error } = await supabase.auth.getUser(token);
   if (error) throw error;
