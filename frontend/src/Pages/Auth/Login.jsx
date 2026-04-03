@@ -13,51 +13,67 @@ const LoginPage = () => {
 
   return (
     <div className="login-container">
+      {/* Background Ambient Glow */}
+      <div className="ambient-glow" />
 
-      {/* LEFT SIDE */}
-      <div className="login-left">
+      {/* LEFT SIDE: AUTH FORM */}
+      <section className="login-left">
         <div className="login-box">
-          <h1>Welcome Back</h1>
-          <p>Access your intelligent system</p>
+          <header className="login-header">
+            <span className="system-status">SYSTEM ONLINE</span>
+            <h1>Welcome Back</h1>
+            <p>Initialize your session to access NeuroCore</p>
+          </header>
 
-          <form onSubmit={handleSubmit}>
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+          <form onSubmit={handleSubmit} className="login-form">
+            <div className="input-group">
+              <label>Identification</label>
+              <input
+                type="email"
+                placeholder="email@neurocore.ai"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
 
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <div className="input-group">
+              <label>Security Key</label>
+              <input
+                type="password"
+                placeholder="••••••••"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
 
-            <button type="submit">Login</button>
+            <button type="submit" className="login-button">
+              <span className="btn-text">AUTHORIZE</span>
+              <div className="btn-glow" />
+            </button>
           </form>
+
+          <footer className="login-footer">
+            <p>Protected by End-to-End Neural Encryption</p>
+          </footer>
         </div>
-      </div>
+      </section>
 
-      {/* RIGHT SIDE */}
-      <div className="login-right">
+      {/* RIGHT SIDE: VISUALS */}
+      <section className="login-right">
         <div className="dark-core-container">
-
-          {/* 🌑 Dark Matter Globe Canvas */}
           <DarkMatterGlobe />
-
-          {/* Scanline overlay for atmosphere */}
           <div className="scanline" />
-
+          
           <div className="core-text">
+            <div className="badge">VERSION 3.0.4</div>
             <h2>NeuroCore</h2>
+            <div className="divider" />
             <p>"Intelligence is engineered. Power is automated."</p>
           </div>
-
         </div>
-      </div>
-
+      </section>
     </div>
   );
 };

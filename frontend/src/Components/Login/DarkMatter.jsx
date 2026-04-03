@@ -32,7 +32,7 @@ function DarkMatterGlobe() {
         return { ...p, ox: p.x, oy: p.y, oz: p.z, angle: Math.random()*Math.PI*2,
           speed: Math.random()<0.5 ? speed : -speed, axis: Math.random()<0.5 ? 'y' : 'z',
           size: 1+Math.random()*1.6, brightness: 0.3+Math.random()*0.7,
-          hue: 240+Math.random()*80, pulse: Math.random()*Math.PI*2,
+          hue: 20 + Math.random() * 20, pulse: Math.random()*Math.PI*2,
           pulseSpeed: 0.02+Math.random()*0.04 };
       });
       streams = Array.from({ length: STREAMS }, (_, i) => ({
@@ -56,8 +56,8 @@ function DarkMatterGlobe() {
 
       // Globe glow
       const grd = ctx.createRadialGradient(CX, CY, R*0.05, CX, CY, R*1.2);
-      grd.addColorStop(0, 'rgba(80,50,180,0.18)');
-      grd.addColorStop(0.4, 'rgba(50,20,120,0.09)');
+      grd.addColorStop(0, 'rgba(255,140,0,0.18)');
+      grd.addColorStop(0.4, 'rgba(180,80,0,0.09)');
       grd.addColorStop(1, 'rgba(0,0,0,0)');
       ctx.beginPath(); ctx.arc(CX, CY, R*1.2, 0, Math.PI*2);
       ctx.fillStyle = grd; ctx.fill();
@@ -69,8 +69,8 @@ function DarkMatterGlobe() {
         ctx.beginPath(); ctx.arc(CX, CY, s.radius, a, endA, s.ccw);
         const sg = ctx.createLinearGradient(CX+Math.cos(a)*s.radius, CY+Math.sin(a)*s.radius,
           CX+Math.cos(endA)*s.radius, CY+Math.sin(endA)*s.radius);
-        sg.addColorStop(0,'rgba(120,80,255,0)'); sg.addColorStop(0.4,`rgba(160,110,255,${s.alpha})`);
-        sg.addColorStop(1,'rgba(120,80,255,0)');
+        sg.addColorStop(0,'rgba(255,140,0,0)'); sg.addColorStop(0.4,`rgba(255,165,0,${s.alpha})`);
+        sg.addColorStop(1,'rgba(255,140,0,0)');
         ctx.strokeStyle = sg; ctx.lineWidth = s.width; ctx.stroke();
       }
 
@@ -87,18 +87,18 @@ function DarkMatterGlobe() {
         const size = p.size*(0.7+depth*0.6)*(1+pulse*0.4);
         const alpha = (0.2+depth*0.7)*p.brightness*(0.7+pulse*0.3);
         ctx.beginPath(); ctx.arc(screenX, screenY, size, 0, Math.PI*2);
-        ctx.fillStyle = `hsla(${p.hue+pulse*30},70%,${60+depth*30}%,${alpha})`; ctx.fill();
+        ctx.fillStyle = `hsla(${25 + pulse*5},95%,${55+depth*25}%,${alpha})`; ctx.fill();
         if (depth > 0.7 && size > 1.5) {
           ctx.beginPath(); ctx.arc(screenX, screenY, size*2.5, 0, Math.PI*2);
-          ctx.fillStyle = `hsla(${p.hue},80%,70%,${alpha*0.12})`; ctx.fill();
+          ctx.fillStyle = `hsla(30,90%,70%,${alpha*0.12})`; ctx.fill();
         }
       });
 
       // Core pulse
       const cg = ctx.createRadialGradient(CX, CY, 0, CX, CY, R*0.18*(1+breathe*0.1));
-      cg.addColorStop(0, `rgba(200,180,255,${0.5+breathe*0.3})`);
-      cg.addColorStop(0.3, `rgba(130,90,255,${0.25})`);
-      cg.addColorStop(1, 'rgba(60,30,180,0)');
+      cg.addColorStop(0, `rgba(255,180,80,${0.5+breathe*0.3})`);
+      cg.addColorStop(0.3, `rgba(255,140,0,0.25)`);
+      cg.addColorStop(1, 'rgba(120,60,0,0)');
       ctx.beginPath(); ctx.arc(CX, CY, R*0.18*(1+breathe*0.1), 0, Math.PI*2);
       ctx.fillStyle = cg; ctx.fill();
 

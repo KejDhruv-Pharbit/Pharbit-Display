@@ -1,134 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=JetBrains+Mono:wght@300&display=swap');
+
+:root {
+  --primary: #ff9100;
+  --bg: #050505;
+  --glass: rgba(255, 255, 255, 0.03);
+  --border: rgba(255, 255, 255, 0.08);
+  --text-main: #ffffff;
+  --text-dim: #888888;
+}
 
 .login-container {
   width: 100vw;
   height: 100vh;
   display: flex;
-  background: #000;
+  background-color: var(--bg);
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Ambient background effect */
+.ambient-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 70% 50%, rgba(255, 145, 0, 0.05), transparent 50%);
+  pointer-events: none;
 }
 
 /* LEFT SIDE */
 .login-left {
-  width: 35%;
+  width: 40%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 10;
+  border-right: 1px solid var(--border);
+  background: rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);
 }
 
 .login-box {
-  width: 320px;
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
 }
 
-.login-box h1 {
-  color: #fff;
-  font-size: 34px;
+.system-status {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--primary);
+  letter-spacing: 2px;
   margin-bottom: 10px;
+  display: block;
 }
 
-.login-box p {
-  color: #aaa;
-  margin-bottom: 30px;
+.login-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: -1px;
 }
 
-.login-box input {
+.login-header p {
+  color: var(--text-dim);
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+/* FORM STYLING */
+.input-group {
+  margin-bottom: 24px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.input-group input {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border-radius: 10px;
-  border: none;
-  background: #1a1a1a;
+  padding: 14px 16px;
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 8px;
   color: white;
-  transition: 0.2s;
+  font-size: 14px;
+  transition: all 0.3s ease;
 }
 
-.login-box input:focus {
+.input-group input:focus {
   outline: none;
-  border: 1px solid #ff9100;
-  box-shadow: 0 0 10px rgba(255, 145, 0, 0.4);
+  border-color: var(--primary);
+  background: rgba(255, 145, 0, 0.02);
 }
 
-.login-box button {
+.login-button {
   width: 100%;
-  padding: 12px;
-  background: #ff9100;
+  padding: 16px;
+  background: var(--primary);
+  color: black;
   border: none;
-  border-radius: 10px;
-  font-weight: bold;
+  border-radius: 8px;
+  font-weight: 700;
+  letter-spacing: 1px;
   cursor: pointer;
-  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s;
 }
 
-.login-box button:hover {
-  background: #e68200;
-  box-shadow: 0 0 15px rgba(255, 145, 0, 0.5);
+.login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 145, 0, 0.3);
+}
+
+.login-footer {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.login-footer p {
+  font-size: 11px;
+  color: #444;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 /* RIGHT SIDE */
 .login-right {
-  width: 65%;
+  width: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* 🔥 subtle cosmic background */
-  background: radial-gradient(
-    circle at center,
-    rgba(255, 145, 0, 0.08),
-    transparent 60%
-  );
-}
-
-/* DARK CORE */
-.dark-core-container {
-  width: 500px;
-  height: 500px;
   position: relative;
 }
 
-/* TEXT BELOW */
+.dark-core-container {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .core-text {
-  position: absolute;
-  bottom: -40px;
-  width: 100%;
   text-align: center;
+  margin-top: 20px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  border-radius: 100px;
+  font-size: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 15px;
 }
 
 .core-text h2 {
-  color: #fff;
-  font-size: 24px;
+  font-size: 3rem;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin: 0;
+}
+
+.divider {
+  width: 40px;
+  height: 2px;
+  background: var(--primary);
+  margin: 20px auto;
 }
 
 .core-text p {
-  color: #aaa;
-  font-size: 14px;
-}
-
-.dark-core-container {
-  position: relative;
-  width: 70% ;
-  height: 75%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  color: var(--text-dim);
+  font-style: italic;
+  max-width: 300px;
+  line-height: 1.6;
 }
 
 .scanline {
   position: absolute;
   inset: 0;
-  background: repeating-linear-gradient(
+  background: linear-gradient(
     to bottom,
-    transparent,
-    transparent 3px,
-    rgba(0, 0, 0, 0.06) 3px,
-    rgba(0, 0, 0, 0.06) 4px
+    transparent 50%,
+    rgba(0, 0, 0, 0.1) 50%
   );
+  background-size: 100% 4px;
   pointer-events: none;
-  z-index: 2;
-  opacity: 0.35;
+  opacity: 0.1;
 }
 
-.core-text {
-  position: relative;
-  z-index: 3;
-  text-align: center;
-  padding-bottom: 2rem;
+/* Responsive */
+@media (max-width: 900px) {
+  .login-right { display: none; }
+  .login-left { width: 100%; border: none; }
 }
